@@ -16,7 +16,7 @@ This is a copy from the HipChat Server / Data Center Documentation:
 
 ## Import into Rocket.Chat
 
-1. Decrypt the exported file: `openssl aes-256-cbc -d -in path_to_encrypted_file.tar.gz.aes -out path_to_decrypted_file.tar.gz -pass pass:your_password` See the table below for descriptions of the command line arguments.
+1. Decrypt the exported file: `openssl aes-256-cbc -d -in path_to_encrypted_file.tar.gz.aes -out path_to_decrypted_file.tar.gz -pass pass:your_password -md md5` See the table below for descriptions of the command line arguments.
 2. Ensure the file generated is a `tar.gz` file, otherwise Rocket.Chat won't accept it.
 3. Go to `https://[your_rocketchat]/admin/import/prepare/hipchatenterprise`
 4. Choose your decrypted `tar.gz` file and wait until Rocket.Chat can read it (it can take a few minutes, depending on the size of your export)
@@ -32,6 +32,7 @@ This is a copy from the HipChat Server / Data Center Documentation:
 | `-in` | Use this to specify the path to the archive file you're about to decrypt. |
 | `-out` | Use this to specify the path where you want to output the decrypted file. |
 | `-pass pass:` | Enter the password you created when you **exported** the archive file. |
+| `-md md5` | Force the correct openssl version. |
 
 ## Troubleshooting
 
